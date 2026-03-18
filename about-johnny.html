@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueLink 數位顧問 Johnny Lin｜高階商務名片</title>
+    
+    <meta name="description" content="TrueLink 誠通數位核心團隊。專注於企業級 SEO 權重工程、GEO Schema 生成與高階軟體開發，為企業建構具備高轉換率的數位資產。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* 精準校對截圖的色票 */
+            --bg-deep: #1E252B; 
+            --card-bg: #2B3640;
+            --neon-green: #90E5A1; /* 柔和螢光綠 */
+            --text-light: #F8FAFC;
+            --text-dim: #94A3B8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 100px;
+        }
+
+        .vcard-container {
+            width: 100%;
+            max-width: 580px; 
+            position: relative;
+        }
+
+        /* --- Header / Brand --- */
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .logo-wrapper {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 16px 28px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .brand-logo {
+            max-width: 160px;
+            display: block;
+        }
+
+        /* --- Profile Card --- */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 0 30px 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .avatar-wrapper {
+            margin-top: -65px; 
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--bg-deep); /* 與背景同色，製造挖空感 */
+            background-color: var(--card-bg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* 頭像發光外圈 */
+        .avatar-ring {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            border-radius: 50%;
+            border: 2px solid rgba(144, 229, 161, 0.4);
+            pointer-events: none;
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 8px;
+            width: 22px;
+            height: 22px;
+            background-color: var(--neon-green);
+            border: 4px solid var(--bg-deep);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(144, 229, 161, 0.5);
+        }
+
+        .profile-name {
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .profile-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--neon-green);
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+
+        .profile-bio {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* --- Vision / Quote --- */
+        .vision-quote {
+            position: relative;
+            padding: 20px 24px;
+            border-left: 4px solid var(--neon-green);
+            background: linear-gradient(90deg, rgba(43, 54, 64, 0.8) 0%, transparent 100%);
+            margin-bottom: 50px;
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Services Grid --- */
+        .section-title {
+            font-size: 1.15rem;
+            color: var(--neon-green);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+        .section-title::before {
+            content: "\25B6"; 
+            font-size: 0.75rem;
+            margin-right: 12px;
+        }
+
+        .service-list {
+            display: grid;
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .service-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-decoration: none; 
+            display: block;
+            position: relative;
+        }
+        .service-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(144, 229, 161, 0.4);
+            background: #323E4A;
+        }
+
+        /* 重點高亮服務：GEO Schema */
+        .service-highlight {
+            border: 1px solid rgba(144, 229, 161, 0.6);
+            background: linear-gradient(145deg, #2B3640 0%, #22322A 100%);
+            box-shadow: 0 4px 20px rgba(144, 229, 161, 0.08);
+            margin-top: 10px; /* 給 LATEST TOOL 徽章留空間 */
+        }
+        
+        .service-highlight::before {
+            content: "LATEST TOOL";
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background: var(--neon-green);
+            color: var(--bg-deep);
+            font-size: 0.75rem;
+            font-weight: 900;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(144, 229, 161, 0.2);
+        }
+
+        .service-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* --- CTA Buttons --- */
+        .action-group {
+            display: grid;
+            gap: 14px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--neon-green);
+            color: var(--bg-deep);
+            box-shadow: 0 8px 15px rgba(144, 229, 161, 0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(144, 229, 161, 0.25);
+            background: #A3EDAF;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-subtle);
+        }
+        .btn-outline:hover {
+            border-color: var(--text-dim);
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Johnny Lin",
+      "jobTitle": "首席數位資產架構師",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TrueLink 誠通數位",
+        "url": "https://truelink-group.com",
+        "logo": "https://lirp.cdn-website.com/71cf9dc9/dms3rep/multi/opt/truelink-logo-horizontal--1920w.webp",
+        "taxID": "60381491"
+      },
+      "url": "https://johnny050033.github.io/about-me/",
+      "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA_fPXjIzf6exBqVCHl8QIl3R02hnalI0ehbd3hBGoCHRGRnx99KrEg3b8e1sNRJnPbiYi8pib7-RGG_IMqM4q48KCAtfL129wMctgPciubIDY8-a0mOHLuCk9yMmHV1-EQrhD7XAiVmnMugAY8rpMAtOWuVRPdlnszhNpUJ4RJd15fSJzIzbYZPolE-SY/s800/johnny-lin-founder-truelink-digital-marketing.webp",
+      "sameAs": [
+        "https://line.me/R/oaMessage/@521vhvhp/"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <div class="vcard-container">
+        <header>
+            <a href="https://truelink-group.com/" target="_blank" class="logo-wrapper">
+                <img src="https://lirp.cdn-website.com/71cf9dc9/dms3rep/multi/opt/truelink-logo-horizontal--1920w.webp" alt="TrueLink 誠通數位 Logo" class="brand-logo">
+            </a>
+        </header>
+
+        <div class="profile-card">
+            <div class="avatar-wrapper">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhA_fPXjIzf6exBqVCHl8QIl3R02hnalI0ehbd3hBGoCHRGRnx99KrEg3b8e1sNRJnPbiYi8pib7-RGG_IMqM4q48KCAtfL129wMctgPciubIDY8-a0mOHLuCk9yMmHV1-EQrhD7XAiVmnMugAY8rpMAtOWuVRPdlnszhNpUJ4RJd15fSJzIzbYZPolE-SY/s800/johnny-lin-founder-truelink-digital-marketing.webp" alt="數位顧問 Johnny Lin" class="avatar">
+                <div class="avatar-ring"></div>
+                <div class="status-badge" title="Online"></div>
+            </div>
+            
+            <h1 class="profile-name">數位顧問 Johnny</h1>
+            <div class="profile-title">DIGITAL ASSET ARCHITECT</div>
+            
+            <p class="profile-bio">
+                TrueLink 誠通數位核心團隊。致力於融合深邃黑科技與商業邏輯，為企業打造具備高轉換率與長效影響力的數位資產。
+            </p>
+        </div>
+
+        <div class="vision-quote">
+            「最好的行銷，是讓客戶在搜尋引擎與應用程式中，看見無可取代的專業與信任。」
+        </div>
+
+        <h2 class="section-title">核心服務與專業矩陣</h2>
+        <div class="service-list">
+            
+            <a href="https://truelink-group.com/tools/geo-schema-generator" target="_blank" class="service-item service-highlight">
+                <div class="service-icon">⚡</div>
+                <h3 class="service-title">GEO Schema Generator</h3>
+                <p class="service-desc">專為生成式 AI 搜尋 (SGE/GEO) 優化的結構化數據生成器。透過標準化 Schema，讓您的品牌成為 AI 爬蟲的首選權威解答。</p>
+            </a>
+
+            <div class="service-item">
+                <div class="service-icon">🔍</div>
+                <h3 class="service-title">企業級 SEO 權重工程</h3>
+                <p class="service-desc">不僅是關鍵字排名，更著重於「實體語義 (Entities)」的建構，提升網站整體的網域權威值 (Domain Authority)。</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-icon">💻</div>
+                <h3 class="service-title">高階客製化軟體開發</h3>
+                <p class="service-desc">從底層架構出發，為企業建構穩定、安全且高擴充性的管理系統與 SaaS 平台，徹底解決商業痛點。</p>
+            </div>
+
+            <div class="service-item">
+                <div class="service-icon">📱</div>
+                <h3 class="service-title">原生 APP 體驗設計</h3>
+                <p class="service-desc">將複雜的商業邏輯轉化為直覺的操作介面，打造流暢且具備高留存率的行動應用程式 (iOS / Android)。</p>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">建立聯繫</h2>
+        <div class="action-group">
+            <a href="https://line.me/R/oaMessage/@521vhvhp/?您好，我透過您的個人名片網頁前來，希望諮詢數位資產服務：" target="_blank" class="btn btn-primary">
+                <span>💬</span> 與我進行 LINE 官方諮詢
+            </a>
+            <a href="https://truelink-group.com/" target="_blank" class="btn btn-outline">
+                <span>🌐</span> 訪問 TrueLink 官方網站
+            </a>
+        </div>
+
+        <footer>
+            <p>Organization: TrueLink 誠通數位</p>
+            <p>統一編號 (Tax ID): 60381491</p>
+            <p style="margin-top: 10px; color: rgba(255,255,255,0.15);">© 2026 TrueLink Digital Architecture.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
